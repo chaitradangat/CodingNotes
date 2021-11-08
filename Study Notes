@@ -1,1 +1,6 @@
 
+1> sql agent log location
+   USE MASTER
+   GO
+   EXEC msdb..sp_get_sqlagent_properties
+   GO
