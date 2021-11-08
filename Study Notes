@@ -1,8 +1,18 @@
-https://www.mssqltips.com/sqlservertip/3093/how-to-change-the-sql-server-agent-log-file-path/
-1> sql agent log location
+1> https://www.mssqltips.com/sqlservertip/3093/how-to-change-the-sql-server-agent-log-file-path/
+   sql agent log location
    USE MASTER
    GO
    EXEC msdb..sp_get_sqlagent_properties
    GO
 
-https://stackoverflow.com/questions/31786287/how-to-split-large-text-file-in-windows
+2> https://stackoverflow.com/questions/31786287/how-to-split-large-text-file-in-windows
+
+3> 
+SELECT  *
+FROM    ( SELECT    ROW_NUMBER() OVER ( ORDER BY OrderDate ) AS RowNum, *
+          FROM      Orders
+          WHERE     OrderDate >= '1980-01-01'
+        ) AS RowConstrainedResult
+WHERE   RowNum >= 1
+    AND RowNum < 20
+ORDER BY RowNum
