@@ -20,3 +20,62 @@ ORDER BY RowNum
 4> 
 Date Time Formats
 https://numenta.com/machine-intelligence-technology/htm-studio/date-time-formats/
+
+
+5>
+ng serve --ssl
+
+npm install browser-sync --save-dev
+
+ng serve --ssl true --ssl-key /node_modules/browser-sync/lib/server/certs/server.key --ssl-cert /node_modules/browser-sync/lib/server/certs/server.crt
+
+https://bartwullems.blogspot.com/2017/08/chrome-https-error-on-localhost.html
+
+New-SelfSignedCertificate `
+    -Subject localhost `
+    -DnsName localhost `
+    -KeyAlgorithm RSA `
+    -KeyLength 2048 `
+    -CertStoreLocation "cert:CurrentUser\My" `
+    -FriendlyName "Localhost certificate"
+	
+$pfxPassword = ConvertTo-SecureString -String "YourSecurePassword" -Force -AsPlainText
+$pfxFilePath = "c:\tmp\localhost.pfx"
+$cerFilePath = "c:\tmp\localhost.cer"
+
+ng serve --ssl true --ssl-key ./node_modules/browser-sync/certs/server.key --ssl-cert ./node_modules/browser-sync/certs/server.crt
+
+https://www.freecodecamp.org/news/how-to-get-https-working-on-your-local-development-environment-in-5-minutes-7af615770eec/
+
+chrome://flags/#allow-insecure-localhost 
+
+62
+
+You can use
+
+--ssl
+or
+
+"serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "someapp:build",
+            "ssl": true
+          },
+and an ssl cert will automatically be generated for you.
+
+Then for Chrome to accept a self signed cert for localhost, set this flag: chrome://flags/#allow-insecure-localhost
+
+You'll also need to import the cert into your Trusted Root Certificates. To do this, click the cert error at top in Chrome then:
+
+1.Click certificate (invalid)
+2.Click the Details tab
+3.Click Copy to File...
+4.next next finish and export it somewhere.
+5.start-> run-> inetcpl.cpl
+6.click Content tab
+7.click Certificates
+8.click Trusted Root Certication Authorities tab
+9.Click Import button
+10.Import the cert
+11.Re-run ng serve --ssl
