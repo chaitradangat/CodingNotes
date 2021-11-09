@@ -16,3 +16,7 @@ FROM    ( SELECT    ROW_NUMBER() OVER ( ORDER BY OrderDate ) AS RowNum, *
 WHERE   RowNum >= 1
     AND RowNum < 20
 ORDER BY RowNum
+
+4> 
+Date Time Formats
+https://numenta.com/machine-intelligence-technology/htm-studio/date-time-formats/
