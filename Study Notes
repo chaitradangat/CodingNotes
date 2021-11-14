@@ -79,3 +79,18 @@ You'll also need to import the cert into your Trusted Root Certificates. To do t
 9.Click Import button
 10.Import the cert
 11.Re-run ng serve --ssl
+
+6> 
+SET IDENTITY_INSERT tableA ON
+
+You have to make a column list for your INSERT statement:
+
+INSERT Into tableA ([id], [c2], [c3], [c4], [c5] ) 
+SELECT [id], [c2], [c3], [c4], [c5] FROM tableB
+
+not like "INSERT Into tableA SELECT ........"
+
+SET IDENTITY_INSERT tableA OFF
+
+
+
