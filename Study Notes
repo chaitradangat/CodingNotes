@@ -92,5 +92,14 @@ not like "INSERT Into tableA SELECT ........"
 
 SET IDENTITY_INSERT tableA OFF
 
+7>
+select 
+obj.type REFERENCING_OBJECT_TYPE
+ ,SCHEMA_NAME(obj.schema_id) REFERENCING_OBJECT_SCHEMA
+ ,obj.name                  REFERENCING_OBJECT_NAME
+from sysdepends x
+INNER JOIN sys.objects obj ON x.id  = obj.object_id
+where depid = object_id('schemaname.tablename')
+and col_name(depid, depnumber) = 'columnname'
 
 
