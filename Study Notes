@@ -113,3 +113,7 @@ INNER JOIN sys.schemas (NOLOCK) ON sys.objects.schema_id = sys.schemas.schema_id
 WHERE
     sys.sql_modules.definition COLLATE SQL_Latin1_General_CP1_CI_AS LIKE '%{Column Name}%' ESCAPE '\'
 ORDER BY sys.objects.type_desc, sys.schemas.name, sys.objects.name
+
+
+8>
+DECLARE #MyTempTable TABLE (SiteName varchar(50), BillingMonth varchar(10), Consumption float)
