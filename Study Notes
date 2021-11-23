@@ -116,6 +116,8 @@ ORDER BY sys.objects.type_desc, sys.schemas.name, sys.objects.name
 
 
 8>
-DECLARE @TEMP4 TABLE ( ID1 int, ID2 int )
+DECLARE @TEMP5 TABLE ( ID1 int, ID2 int )
 CREATE TABLE #TEMP5  ( ID1 int, ID2 int )
 
+9> first date of the year
+SELECT DATEADD(yy,DATEDIFF(yy,0,GETDATE()),0)
