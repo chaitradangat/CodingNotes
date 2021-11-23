@@ -116,4 +116,6 @@ ORDER BY sys.objects.type_desc, sys.schemas.name, sys.objects.name
 
 
 8>
-DECLARE #MyTempTable TABLE (SiteName varchar(50), BillingMonth varchar(10), Consumption float)
+DECLARE @TEMP4 TABLE ( ID1 int, ID2 int )
+CREATE TABLE #TEMP5  ( ID1 int, ID2 int )
+
