@@ -121,3 +121,16 @@ CREATE TABLE #TEMP5  ( ID1 int, ID2 int )
 
 9> first date of the year
 SELECT DATEADD(yy,DATEDIFF(yy,0,GETDATE()),0)
+
+10> SELECT 
+    [Operation],
+    [Transaction Id],
+    [Transaction SID],
+    [Transaction Name],
+    [Begin Time],
+    [SPID],
+    [Description]
+FROM 
+    fn_dblog (NULL, NULL)
+WHERE 
+    [Transaction Name] = 'DROPOBJ'
