@@ -122,7 +122,8 @@ CREATE TABLE #TEMP5  ( ID1 int, ID2 int )
 9> first date of the year
 SELECT DATEADD(yy,DATEDIFF(yy,0,GETDATE()),0)
 
-10> SELECT 
+10> to view deleted sql objects and their logs
+    SELECT 
     [Operation],
     [Transaction Id],
     [Transaction SID],
