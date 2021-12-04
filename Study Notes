@@ -135,3 +135,6 @@ FROM
     fn_dblog (NULL, NULL)
 WHERE 
     [Transaction Name] = 'DROPOBJ'
+
+10> add bootstrap to angular project
+ng add @ng-bootstrap/ng-bootstrap
