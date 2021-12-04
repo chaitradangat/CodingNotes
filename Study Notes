@@ -139,3 +139,6 @@ WHERE
 10> add bootstrap to angular project
 ng add @ng-bootstrap/ng-bootstrap
 npm install @ng-bootstrap/ng-bootstrap
+
+11> Angular Material
+ng add @angular/material
