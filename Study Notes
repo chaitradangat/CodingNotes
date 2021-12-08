@@ -199,5 +199,10 @@ SELECT * FROM #dateFormats
 
 DROP TABLE #dateFormats
 
-15> Sybase era internal very useful table
+15> Sybase era internal very useful table for using series of numbers
 SELECT *  FROM	master..spt_values 
+
+
+16> Drop temp table if exists
+IF OBJECT_ID('tempdb..#Results') IS NOT NULL
+    DROP TABLE #Results
