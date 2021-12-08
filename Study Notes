@@ -199,3 +199,5 @@ SELECT * FROM #dateFormats
 
 DROP TABLE #dateFormats
 
+15> Sybase era internal very useful table
+SELECT *  FROM	master..spt_values 
