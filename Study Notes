@@ -145,3 +145,33 @@ ng add @angular/material
 
 12> Azure WorkFlows
 Business processes modeled in software are often called workflows. 
+
+13> Get Timezonediff on sql server
+DECLARE @ServerDate AS DATETIME = GETDATE()
+
+SELECT @ServerDate
+	,DATEPART(hh, @ServerDate)
+
+DECLARE @UtcDate AS DATETIME = GETUTCDATE()
+
+SELECT @UtcDate
+	,DATEPART(HOUR, @UtcDate)
+
+DECLARE @TimeZoneDiff AS DATETIME
+DECLARE @TimeZoneDiffHours AS INT
+
+SELECT @TimeZoneDiff = CASE 
+		WHEN @UtcDate > @ServerDate
+			THEN @UtcDate - @ServerDate
+		ELSE @ServerDate - @UtcDate
+		END
+
+SELECT @TimeZoneDiff
+
+SET @TimeZoneDiffHours = DATEPART(HOUR, @TimeZoneDiff)
+
+SELECT @TimeZoneDiffHours AS 'Time Zone Difference'
+GO
+
+
+
