@@ -1,0 +1,3 @@
+Baked into Azure App Service is the ability to scale up/down or scale out/in.
+Depending on the usage of the web app, you can scale your app up/down the resources of the underlying machine that is hosting your web app.Resources include the number of cores or the amount of RAM available.
+Scaling out/in is the ability to increase, or decrease, the number of machine instances that are running your web app.
