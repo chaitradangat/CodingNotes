@@ -206,3 +206,7 @@ SELECT *  FROM	master..spt_values
 16> Drop temp table if exists
 IF OBJECT_ID('tempdb..#Results') IS NOT NULL
     DROP TABLE #Results
+
+
+17> CORS
+https://stackoverflow.com/questions/29970793/enabling-cors-through-web-config-vs-webapiconfig-and-controller-attributes
