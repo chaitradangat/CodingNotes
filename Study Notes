@@ -210,3 +210,8 @@ IF OBJECT_ID('tempdb..#Results') IS NOT NULL
 
 17> CORS
 https://stackoverflow.com/questions/29970793/enabling-cors-through-web-config-vs-webapiconfig-and-controller-attributes
+
+
+18> SQL server convert function
+SELECT CONVERT(datetime, '2017-08-25');
+SELECT CONVERT(varchar, '2017-08-25', 101);
