@@ -224,3 +224,5 @@ Target framework names (TFMs) TFMs are the strings you use to express which vers
   *Use net5.0 for code sharing moving forward.
 
 
+20> add binding redirect to all projects in vs
+Get-Project –All | Add-BindingRedirect
