@@ -229,3 +229,8 @@ Get-Project –All | Add-BindingRedirect
 
 21> Azure functions binding redirect issue
 https://codopia.wordpress.com/2017/07/21/how-to-fix-the-assembly-binding-redirect-problem-in-azure-functions/
+
+22> Recover deleted sql records
+https://www.nucleustechnologies.com/blog/recover-deleted-records-in-sql-server/
+
+
