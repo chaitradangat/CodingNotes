@@ -234,3 +234,10 @@ https://codopia.wordpress.com/2017/07/21/how-to-fix-the-assembly-binding-redirec
 https://www.nucleustechnologies.com/blog/recover-deleted-records-in-sql-server/
 https://www.c-sharpcorner.com/article/how-to-recover-deleted-rows-in-sql-server/
 
+23> Run application with az login from local iis
+make changes in %windir%\System32\inetsrv\config\applicationHost.config
+Search for "setProfileEnvironment". If it's set to "False", change it to "True". 
+If it's not present, add it as an attribute to the processModel element 
+(/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment), and set it to "True"
+
+set identity in application pool of the hosted website or webservice user same as user who has access to az login
