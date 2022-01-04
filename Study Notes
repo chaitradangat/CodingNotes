@@ -240,13 +240,14 @@ https://www.c-sharpcorner.com/article/how-to-recover-deleted-rows-in-sql-server/
         Search for "setProfileEnvironment". If it's set to "False", change it to "True". 
         If it's not present, add it as an attribute to the processModel element 
         (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment), and set it to "True"
-     c. In application pool advanced settings
+     c. Inside web.config of the application being deployed to IIS, the token connection string should be read using settings RunAs=Developer;DeveloperTool=AzureCli;
+     d. In application pool advanced settings
          i> Set identity in application pool of the hosted website or webservice user same as user who has access to az login
          ii>Select loaduserprofile true in application pool advanced settings
-     d. Run az login from cmd.exe pointing to bin of deployed web application
-     e. Run the application from local IIS :)
+     e. Run az login from cmd.exe pointing to bin of deployed web application
+     f. Run the application from local IIS :)
      
-24> Host asp.net core webapi on local IIS
+24> Host ASP.NET core webapi on local IIS
      a. Download .NET hosting exe latest for .NET core version matching your api and install
      b. Restart IIS
      c. In the .NET core webapi project properties select the hostingmodel as Out Of Process
