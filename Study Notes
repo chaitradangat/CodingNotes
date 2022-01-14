@@ -253,4 +253,9 @@ https://www.c-sharpcorner.com/article/how-to-recover-deleted-rows-in-sql-server/
      c. In the .NET core webapi project properties select the hostingmodel as Out Of Process
      d. Publish the webapi project and in publish settings select targetruntime:win-x64 & Configuration:Debug (if you are debugging and your code is in development testing)
      e. Inside web.config of the generated publish folder update the attribute hostingModel="OutOfProcess" (case-sensitive)
+     
+25> Issue with removing users with AD role from the Azure DevOps Organization
+     'Are you sure you want to remove User (<user-email>) from the organization <organization-name>?
+      User (<user-email>) will continue to have access even after removal if the user is a member of an AAD group that has been added to this organization.
+      Learn more'
 
