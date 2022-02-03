@@ -242,18 +242,28 @@ https://www.c-sharpcorner.com/article/how-to-recover-deleted-rows-in-sql-server/
         (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment), and set it to "True"
      c. Inside web.config of the application being deployed to IIS, the token connection string should be read using settings RunAs=Developer;DeveloperTool=AzureCli;
      d. In application pool advanced settings
-         i> Set identity in application pool of the hosted website or webservice user same as user who has access to az login
-         ii>Select loaduserprofile true in application pool advanced settings
+         i>   Set the .NET CLR version to "No Managed Code"
+	 ii>  Set Enable 32-Bit applications to "True"
+	 iii> Set Managed Pipeline Mode to "Integrated"
+         iv>  Set identity in application pool of the hosted website or webservice user same as user who has access to az login
+         v>   Select loaduserprofile true in application pool advanced settings
      e. Run az login from cmd.exe pointing to bin of deployed web application
      f. Run the application from local IIS :)
      
-24> Host ASP.NET core webapi on local IIS
+24> Host ASP.NET core webapi or web application on local IIS
      a. Download .NET hosting exe latest for .NET core version matching your api and install
      b. Restart IIS
      c. In the .NET core webapi project properties select the hostingmodel as Out Of Process
      d. Publish the webapi project and in publish settings select targetruntime:win-x64 & Configuration:Debug (if you are debugging and your code is in development testing)
      e. Inside web.config of the generated publish folder update the attribute hostingModel="OutOfProcess" (case-sensitive)
-     
+     f. Rename AspNetCoreModuleV2 to AspNetCoreModule in web.config section below
+          <system.webServer>
+            <handlers>
+              <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModuleV2" resourceType="Unspecified" />
+            </handlers>
+            <aspNetCore processPath=".\CM.Web.exe" stdoutLogEnabled="false" stdoutLogFile=".\logs\stdout" hostingModel="inprocess" />
+          </system.webServer>  
+
 25> Issue with removing users with AD role from the Azure DevOps Organization
      'Are you sure you want to remove User (<user-email>) from the organization <organization-name>?
       User (<user-email>) will continue to have access even after removal if the user is a member of an AAD group that has been added to this organization.
