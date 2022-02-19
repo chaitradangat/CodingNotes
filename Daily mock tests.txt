@@ -1,0 +1,7 @@
+What is concurrency in database?
+
+Which performs faster interface or abstract class?
+
+What is thread safety?
+
+What are different design patterns?
