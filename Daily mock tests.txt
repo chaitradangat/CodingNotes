@@ -5,3 +5,5 @@ Which performs faster interface or abstract class?
 What is thread safety?
 
 What are different design patterns?
+
+How to pass data between one controller to other in MVC?
