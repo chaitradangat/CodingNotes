@@ -269,3 +269,8 @@ https://www.c-sharpcorner.com/article/how-to-recover-deleted-rows-in-sql-server/
       User (<user-email>) will continue to have access even after removal if the user is a member of an AAD group that has been added to this organization.
       Learn more'
 
+26> Delete duplicate records from Sql Table
+    https://www.sqlshack.com/different-ways-to-sql-delete-duplicate-rows-from-a-sql-table/
+    -- more code to be added below--
+    
+    
