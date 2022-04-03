@@ -272,5 +272,41 @@ https://www.c-sharpcorner.com/article/how-to-recover-deleted-rows-in-sql-server/
 26> Delete duplicate records from Sql Table
     https://www.sqlshack.com/different-ways-to-sql-delete-duplicate-rows-from-a-sql-table/
     -- more code to be added below--
-    
+                    CREATE TABLE UserLogin (
+                	ID INT
+                	,UserName NVARCHAR(100)
+                	,UserPassword NVARCHAR(100)
+                	)
+                
+                INSERT INTO UserLogin
+                VALUES (
+                	1
+                	,'sumit'
+                	,'password1'
+                	)
+                
+                INSERT INTO UserLogin
+                VALUES (
+                	2
+                	,'anand'
+                	,'password1'
+                	)
+                
+                SELECT *
+                FROM UserLogin;
+                
+                WITH CTE
+                AS (
+                	SELECT U.*
+                		,ROW_NUMBER() OVER (
+                			PARTITION BY U.ID
+                			,U.UserName
+                			,U.UserPassword ORDER BY U.ID DESC
+                			) RANK1
+                	FROM UserLogin U
+                	)
+                DELETE CTE
+                WHERE CTE.RANK1 > 1;
+
+
     
