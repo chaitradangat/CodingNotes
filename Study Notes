@@ -309,4 +309,8 @@ https://www.c-sharpcorner.com/article/how-to-recover-deleted-rows-in-sql-server/
                 WHERE CTE.RANK1 > 1;
 
 
+    27> To enable running scripts in powershell
+        Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    
+    
     
