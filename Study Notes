@@ -313,4 +313,6 @@ https://www.c-sharpcorner.com/article/how-to-recover-deleted-rows-in-sql-server/
         Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     
     
-    
+    28> Fear Greed Index API
+    	https://api.alternative.me/fng/?limit=1&date_format=us
+
