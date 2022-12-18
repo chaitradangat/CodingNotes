@@ -1,0 +1,46 @@
+0>Angular Modules
+@NgModule({
+ imports: [modules on which this module depends..similar to using statement in C#],
+ declarations: [The components declared in this module...similar to class properties in C# ],
+ exports: [the components to be made available outside this module when it is imported by other module]
+})
+
+1> There are two types of Angular modules: feature modules and the root module.Feature modules are used to group related application functionality to make the application easier to manage.
+
+2> Feature module for exporting and importing angular features
+import { NgModule } from "@angular/core";
+const features: any[] = [];
+@NgModule({
+ imports: [features],
+ exports: [features]
+})
+export class MaterialFeatures {}
+
+3> Routing feature modules
+Dynamically loaded modules are managed through the routing configuration, which triggers the loading 
+process when the application navigates to a specific URL.
+
+let routing = RouterModule.forChild([
+ { path: "auth", component: AuthComponent },
+ { path: "main", component: AdminComponent },
+ {
+ path: "admin",
+ loadChildren: () => import("./admin/admin.module")
+ .then(m => m.AdminModule),
+ canActivate: [StoreFirstGuard]
+},
+{ path: "**", redirectTo: "auth" }
+]);
+
+4>Routing by using code
+The URL routing feature relies on a JavaScript API provided by the browser, which means the user can’t simply type the target URL into the browser’s URL bar. 
+import { Router } from "@angular/router";
+this.router.navigateByUrl("/cart");
+
+5>RouteGuard details please study
+
+6>Strictly speaking, the @Injectable decorator is required only when a class has its own constructor 
+arguments to resolve, but it is a good idea to apply it anyway because it serves as a signal that the class is 
+intended for use as a service.
+
+
