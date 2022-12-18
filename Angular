@@ -37,10 +37,56 @@ The URL routing feature relies on a JavaScript API provided by the browser, whic
 import { Router } from "@angular/router";
 this.router.navigateByUrl("/cart");
 
-5>RouteGuard details please study
-
-6>Strictly speaking, the @Injectable decorator is required only when a class has its own constructor 
+5>Strictly speaking, the @Injectable decorator is required only when a class has its own constructor 
 arguments to resolve, but it is a good idea to apply it anyway because it serves as a signal that the class is 
 intended for use as a service.
+
+6>Usage of activated route
+constructor(private repository: ProductRepository,
+private router: Router,
+activeRoute: ActivatedRoute) {
+this.editing = activeRoute.snapshot.params["mode"] == "edit";
+if (this.editing) {
+Object.assign(this.product,
+repository.getProduct(activeRoute.snapshot.params["id"]));
+}
+}
+
+7> Nested <router-outlet/> and child component routing
+let routing = RouterModule.forChild([
+ { path: "auth", component: AuthComponent },
+ {
+ path: "main", component: AdminComponent, canActivate: [AuthGuard],
+ children: [
+ { path: "products/:mode/:id", component: ProductEditorComponent },
+ { path: "products/:mode", component: ProductEditorComponent },
+ { path: "products", component: ProductTableComponent },
+ { path: "orders", component: OrderTableComponent },
+ { path: "**", redirectTo: "products" }
+ ]
+ },
+ { path: "**", redirectTo: "auth" }
+]);
+
+8>ViewChild decorator example in the mattable component
+The ViewChild decorator is used to query the component’s template content, and is used here to find the paginator component.
+@ViewChild(MatPaginator)
+paginator? : MatPaginator
+
+9>rxJs piping
+The pipe method and map function are provided by the RxJS package, and they allow the response event 
+from the server, which is presented through an Observable<any> to be transformed into an event in the 
+Observable<bool> that is the result of the authenticate method
+
+10>switching the implementation of providers
+providers: [ProductRepository, StaticDataSource, Cart, Order, OrderRepository,{ provide: StaticDataSource, useClass: RestDataSource }]
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+*PLease find out the meaning of $any($event).target.value
+
+*RouteGuard details please study
 
 
