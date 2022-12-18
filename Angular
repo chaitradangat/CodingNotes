@@ -81,8 +81,21 @@ Observable<bool> that is the result of the authenticate method
 10>switching the implementation of providers
 providers: [ProductRepository, StaticDataSource, Cart, Order, OrderRepository,{ provide: StaticDataSource, useClass: RestDataSource }]
 
+11>splice angular
+updateOrder(order: Order) {
+this.dataSource.updateOrder(order).subscribe(order => {
+this.orders.splice(this.orders.
+findIndex(o => o.id == order.id), 1, order);
+});
+}
 
-
+12> Angular Bindings are done using using Brackets and Parantheses
+Different types of angular bindings are as below
+Data Binding
+One way data binding
+Two way data binding
+Attribute binding
+Event Binding
 
 --------------------------------------------------------------------------------------------------------------------------------------
 *PLease find out the meaning of $any($event).target.value
