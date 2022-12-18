@@ -96,6 +96,7 @@ One way data binding
 Two way data binding
 Attribute binding
 Event Binding
+String interpolation bindings
 
 --------------------------------------------------------------------------------------------------------------------------------------
 *PLease find out the meaning of $any($event).target.value
