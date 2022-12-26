@@ -98,9 +98,168 @@ Attribute binding
 Event Binding
 String interpolation bindings
 
+A>Angular Class Binding
+<div [ngClass]="getClasses()" >
+ Hello, World.
+</div>
+
+B>The target specifies what the binding will do. 
+There are two different types of target: a directive or a property binding.
+
+C> Angular Directives
+The target for the data binding is a directive, which is a class that is specifically written to support a data 
+binding. Angular comes with some useful built-in directives, and you can create your own to provide custom 
+functionality.The names of the built-in directives start with ng.
+
+ngClass This directive is used to assign host elements to classes, as described in the “Setting 
+Classes and Styles” section.
+
+ngStyle This directive is used to set individual styles, as described in the “Setting Classes 
+and Styles” section.
+
+ngIf This directive is used to insert content in the HTML document when its expression 
+evaluates as true, as described in Chapter 11.
+
+ngFor This directive inserts the same content into the HTML document for each item in a 
+data source, as described in Chapter 11.
+
+ngSwitch
+ngSwitchCase
+ngSwitchDefault
+ngModel
+
+These directives are used to choose between blocks of content to insert into the 
+HTML document based on the value of the expression, as described in Chapter 11.
+
+ngTemplateOutlet This directive is used to repeat a block of content, as described in Chapter 11.
+
+D> Property Binding
+If the binding target doesn’t correspond to a directive, then Angular checks to see whether the target can 
+be used to create a property binding. There are five different types of property binding
+
+E>Angular will still process the binding if you omit the brackets and the 
+target is a directive, but the expression won’t be evaluated, and the content between the quote characters 
+will be passed to the directive as a literal value.
+
+F>types of brackets in angular
+[target]="expr" The square brackets indicate a one-way data binding where data flows from the 
+expression to the target. The different forms of this type of binding are the topic of 
+this chapter.
+
+{{expression}} This is the string interpolation binding, which is described in the “Using the 
+String Interpolation Binding” section.
+
+(target) ="expr" The round brackets indicate a one-way binding where the data flows from the 
+target to the destination specified by the expression. This is the binding used to 
+handle events, as described in Chapter 12.
+
+[(target)] ="expr" This combination of brackets—known as the banana-in-a-box—indicates a 
+two-way binding, where data flows in both directions between the target and the 
+destination specified by the expression, as described in Chapter 12.
+
+G>Attribute Binding Example
+<table class="table mt-2">
+ <tr>
+ <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+ </tr>
+ <tr>
+ <td [attr.colspan]="model.getProducts().length">
+ {{model.getProduct(1)?.name ?? 'None'}}
+ </td>
+ </tr>
+</table>
+
+H>*ngIf *ngFor The asterisk before the directive name indicates that this is a microtemplate directive
+
+I> *ngFor optimization , Two Product objects will be considered equal if they have the same id value. Telling the ngFor expression 
+to use the comparison method is done by adding a trackBy term to the expression.
+
+J>The ng-container element can be used to apply directives without using an HTML element
+
+K> expression context
+
+L> Event Binding
+An event binding has these four parts:
+•	 The host element is the source of events for the binding.
+•	 The round brackets tell Angular that this is an event binding, which is a form of oneway binding where data flows from the element to the rest of the application.
+•	 The event specifies which event the binding is for.
+•	 The expression is evaluated when the event is triggered.
+Unlike one-way bindings, the expressions in event bindings can make changes to the state of the 
+application and can contain assignment operators, such as =.
+
+M>
+When the browser triggers an event, it provides an Event object that describes it.There are different types of event objects for different categories of events (mouse events, keyboard events, form events, and so 
+on), but all events share the three properties described in 
+*type This property returns a string that identifies the type of event that has been triggered.
+*target This property returns the object that triggered the event, which will generally be the object that represents the HTML element in the DOM.
+*timeStamp This property returns a number that contains the time that the event was triggered, expressed as milliseconds since January 1, 1970.
+
+N> custom directives structural directive
+constructor(element: ElementRef, @Attribute("pa-attr-class") bgClass: string) {
+ element.nativeElement.classList.add(bgClass || "table-success", "fw-bold");
+ }
+
+
+
+
+
 --------------------------------------------------------------------------------------------------------------------------------------
 *PLease find out the meaning of $any($event).target.value
 
+*Please re-learn creating custom attributes chapter again
+
 *RouteGuard details please study
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+Listing 5-6. The Contents of the authMiddleware.js File in the SportsStore Folder
+const jwt = require("jsonwebtoken");
+const APP_SECRET = "myappsecret";
+const USERNAME = "admin";
+const PASSWORD = "secret";
+const mappings = {
+ get: ["/api/orders", "/orders"],
+ post: ["/api/products", "/products", "/api/categories", "/categories"]
+}
+
+
+function requiresAuth(method, url) {
+ return (mappings[method.toLowerCase()] || [])
+ .find(p => url.startsWith(p)) !== undefined;
+}
+module.exports = function (req, res, next) {
+ if (req.url.endsWith("/login") && req.method == "POST") {
+ if (req.body && req.body.name == USERNAME && req.body.password == PASSWORD) {
+ let token = jwt.sign({ data: USERNAME, expiresIn: "1h" }, APP_SECRET);
+ res.json({ success: true, token: token });
+ } else {
+ res.json({ success: false });
+ }
+ res.end();
+ return;
+ } else if (requiresAuth(req.method, req.url)) {
+ let token = req.headers["authorization"] || "";
+ if (token.startsWith("Bearer<")) {
+ token = token.substring(7, token.length - 1);
+ try {
+ jwt.verify(token, APP_SECRET);
+ next();
+ return;
+ } catch (err) { }
+ }
+ res.statusCode = 401;
+ res.end();
+ return;
+ }
+ next();
+}
+
+
+
+
 
 
