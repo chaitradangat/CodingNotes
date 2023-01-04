@@ -199,7 +199,19 @@ constructor(element: ElementRef, @Attribute("pa-attr-class") bgClass: string) {
  element.nativeElement.classList.add(bgClass || "table-success", "fw-bold");
  }
 
+O>ng add command
+Notice that this command is ng add, rather than the npm install command that I use elsewhere for adding packages. 
+The ng add command is used specifically to install packages, such as @angular/pwa, that have been designed to enhance or reconfigure an Angular project.
+ng add @angular/pwa
 
+P>
+Data Model can be broken into three parts.
+•	 One or more classes that describe the data in the model
+•	 A data source that loads and saves data, typically to a server
+•	 A repository that allows the data in the model to be manipulated
+
+Q>The styles property is set to an array, where each item contains a CSS selector and one or more 
+properties.
 
 
 
@@ -210,8 +222,8 @@ constructor(element: ElementRef, @Attribute("pa-attr-class") bgClass: string) {
 
 *RouteGuard details please study
 
-
-
+*Pls Verify : The scope of components can be restricted using modules by registering the components in angular modules.
+This need not be done for the angular model classes.
 
 
 
