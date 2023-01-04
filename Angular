@@ -199,21 +199,54 @@ constructor(element: ElementRef, @Attribute("pa-attr-class") bgClass: string) {
  element.nativeElement.classList.add(bgClass || "table-success", "fw-bold");
  }
 
-O>ng add command
+O> ng add command
 Notice that this command is ng add, rather than the npm install command that I use elsewhere for adding packages. 
 The ng add command is used specifically to install packages, such as @angular/pwa, that have been designed to enhance or reconfigure an Angular project.
 ng add @angular/pwa
 
-P>
+P> Angular Data Model
 Data Model can be broken into three parts.
 •	 One or more classes that describe the data in the model
 •	 A data source that loads and saves data, typically to a server
 •	 A repository that allows the data in the model to be manipulated
 
-Q>The styles property is set to an array, where each item contains a CSS selector and one or more 
+Q> The styles property is set to an array, where each item contains a CSS selector and one or more 
 properties.
 
+R> enums and usage
+export enum LogLevel {
+ DEBUG, INFO, ERROR
+}
+minimumLevel: LogLevel = LogLevel.INFO;
 
+S> Directives with asterix* that use micro-templates are known as structural directives
+*ngIf
+*ngFor
+ngSwitch
+*ngSwitchCase
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Jargon Corner
+
+Data binding
+Property binding
+Attribute binding
+Event binding
+Directives 
+Custom Directives
+Structural Directives
+
+@Component
+@Directive
+@Pipe
+@Injectable
+@Module
+
+@Input
+@Output
+@ViewChild
+@ViewChildren
 
 --------------------------------------------------------------------------------------------------------------------------------------
 *PLease find out the meaning of $any($event).target.value
