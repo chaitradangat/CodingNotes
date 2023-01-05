@@ -297,6 +297,7 @@ Structural Directives
 ngIf
 ngFor
 ngForm
+ngModel
 ngSwitch
 nfSwitchCase
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -309,7 +310,7 @@ nfSwitchCase
 *Pls Verify : The scope of components can be restricted using modules by registering the components in angular modules.
 This need not be done for the angular model classes.
 
-
+*[ngTemplateOutlet] directive : to define html templates
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 Listing 5-6. The Contents of the authMiddleware.js File in the SportsStore Folder
