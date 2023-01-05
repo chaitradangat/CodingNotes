@@ -225,6 +225,52 @@ S> Directives with asterix* that use micro-templates are known as structural dir
 ngSwitch
 *ngSwitchCase
 
+A> Module provider scope
+There is no module-wide scope for providers, which means that the providers defined by a feature module will be available as though they had been defined by the 
+root module.
+When you add a module to the imports property, its declarable classes are automatically available for use in the application.
+
+B> providers array for services
+The providers property is used to define the service providers that will be used to resolve dependencies when there are no suitable local providers available.
+
+C> index.ts use folder name instead of filename like this import { Product, Model } from "./model";
+To use a JavaScript module, add a file called index.ts alongside the TypeScript file that defines the Angular module, which is the src/app/model folder for the examples in this 
+section. For each of the application features that you want to use outside of the application, add an export...from statement, like this:
+...
+export { ModelModule } from "./model.module";
+export { Product } from "./product.model";
+export { SimpleDataSource } from "./datasource.model";
+export { Model } from "./repository.model";
+...
+
+D> imports export property in NgModule 
+When the common module is imported, all of the types listed in its exports property will be added to the root module’s declarations property.
+
+E> Creating Feature Modules with :
+Model Module
+Utility Module
+Component Module
+
+F>Forms API
+*Creating a reactive form 
+Create a FormControl object in the component class and associate it with a form element in the template using the formControl directive
+
+*Responding to element value changes
+Use the observable valueChanges property defined by the FormControl class
+
+*Responding to element validation changes
+Use the observable statusChanges property defined by the FormControl class
+
+*Managing element state 
+Use the properties defined by the FormControl class
+
+*Defining multiple related form elements
+Use a FormGroup object
+
+*Displaying validation messages for controls in a group
+Obtain a FormControl object through the enclosing FormGroup object
+
+
 
 --------------------------------------------------------------------------------------------------------------------------------------
 Jargon Corner
@@ -248,6 +294,11 @@ Structural Directives
 @ViewChild
 @ViewChildren
 
+ngIf
+ngFor
+ngForm
+ngSwitch
+nfSwitchCase
 --------------------------------------------------------------------------------------------------------------------------------------
 *PLease find out the meaning of $any($event).target.value
 
