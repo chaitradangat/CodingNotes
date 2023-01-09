@@ -270,6 +270,25 @@ Use a FormGroup object
 *Displaying validation messages for controls in a group
 Obtain a FormControl object through the enclosing FormGroup object
 
+G>REST Convention
+GET /products This combination retrieves all the objects in the products collection.
+GET /products/2 This combination retrieves the object whose id is 2 from the products collection.
+POST /products This combination is used to add a new object to the products collection. The request body contains a JSON representation of the new object.
+PUT /products/2 This combination is used to replace the object in the products collection whose id is 2. The request body contains a JSON representation of the replacement object.
+PATCH /products/2 This combination is used to update a subset of the properties of the object in the products collection whose id is 2. The request body contains a JSON representation of the properties to update and the new values.
+DELETE /products/2 This combination is used to delete the product whose id is 2 from the products
+collection.
+
+H>The HttpClient Methods
+get(url) This method sends a GET request to the specified URL.
+post(url, body) This method sends a POST request using the specified object as the body.
+put(url, body) This method sends a PUT request using the specified object as the body.
+patch(url, body) This method sends a PATCH request using the specified object as the body.
+delete(url) This method sends a DELETE request to the specified URL.
+head(url) This method sends a HEAD request, which has the same effect as a GET request except that the server will return only the headers and not the request body.
+options(url) This method sends an OPTIONS request to the specified URL.
+request(method, url, options) This method can be used to send a request with any verb
+
 
 
 --------------------------------------------------------------------------------------------------------------------------------------
