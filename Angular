@@ -338,6 +338,23 @@ const routes: Routes = [
 export const routing = RouterModule.forRoot(routes);
 
 G>The routerLink attribute applies a directive from the routing package that performs the navigation change. 
+<button class="btn btn-warning btn-sm" (click)="editProduct(item.id)"
+ [routerLink]="['/form', 'edit', item.id]">
+
+H> Route Parameters
+{ path: "form/:mode", component: FormComponent }
+http://localhost:4200/form         No match—too few segments
+http://localhost:4200/form/create  Matches, with create assigned to the mode parameter
+http://localhost:4200/form/london  Matches, with london assigned to the mode parameter
+http://localhost:4200/product/edit No match—the first segment is not form
+http://localhost:4200/form/edit/1  No match—too many segments
+
+I>
+
+
+
+
+
 
 --------------------------------------------------------------------------------------------------------------------------------------
 Jargon Corner
