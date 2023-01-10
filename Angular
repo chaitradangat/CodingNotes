@@ -289,7 +289,55 @@ head(url) This method sends a HEAD request, which has the same effect as a GET r
 options(url) This method sends an OPTIONS request to the specified URL.
 request(method, url, options) This method can be used to send a request with any verb
 
+A> HttpClient object will automatically convert the response into an Observable that yields an instance of the type parameter when it completes.
+private sendRequest<T>(verb: string, url: string, body?: Product): Observable<T> {
+ return this.http.request<T>(verb, url, {
+ body: body
+ });
+ }
 
+B> Two URLs are considered to be in the same origin if they have the same protocol, host, and port and have different origins if this is not the case. 
+
+C> Generic HttpClient.request method
+import { catchError, Observable } from "rxjs";
+return this.http.request<T>(verb, url, {
+ body: body,
+ headers: myHeaders
+ }).pipe(catchError((error: Response) => {
+ throw(`Network Error: ${error.statusText} (${error.status})`)
+ }));
+
+D> Routing
+The routing configuration is defined as a set of fragments that are used to match the browser’s URL and to select a component whose template is displayed as the content of an HTML element called router-outlet.
+path             specifies the path for the route.
+component        specifies the component that will be selected when the active URL matches the path.
+pathMatch        tells Angular how to match the current URL to the path property. 
+redirectTo       create a route that redirects the browser to a different URL when activated.
+children         specify child routes, which display additional components in nested router-outlet elements contained in the template of the active component.
+outlet           support multiple outlet elements.
+resolve          define work that must be completed before a route can be activated.
+canActivate      control when a route can be activated.
+canActivateChild control when a child route can be activated.
+canDeactivate    control when a route can be deactivated so that a new route can be activated.
+loadChildren     configure a module that is loaded only when it is needed.
+canLoad          control when an on-demand module can be loaded.
+
+E> Routing Order
+The most specific routes should be defined first, with the routes that follow decreasing in specificity.
+
+F> Angular Routing Sample Code
+import { Routes, RouterModule } from "@angular/router";
+import { TableComponent } from "./core/table.component";
+import { FormComponent } from "./core/form.component";
+
+const routes: Routes = [
+ { path: "form/edit", component: FormComponent },
+ { path: "form/create", component: FormComponent },
+ { path: "", component: TableComponent }]
+
+export const routing = RouterModule.forRoot(routes);
+
+G>The routerLink attribute applies a directive from the routing package that performs the navigation change. 
 
 --------------------------------------------------------------------------------------------------------------------------------------
 Jargon Corner
