@@ -1,2 +1,82 @@
-App settings are always encrypted when stored (encrypted-at-rest).
+* AZ 204 Certification https://learn.microsoft.com/en-us/certifications/azure-developer/
+- Create Azure App Service web apps
+- Implement Azure Functions
+- Develop solutions that use Blob storage
+- Develop solutions that use Azure Cosmos DB
+- Implement infrastructure as a service solutions
+- Implement user authentication and authorization
+- Implement secure cloud solutions
+- Implement API Management
+- Develop event-based solutions
+- Develop message-based solutions
+- Instrument solutions to support monitoring and logging
+- Integrate caching and content delivery within solutions
+
+* App settings are always encrypted when stored (encrypted-at-rest).
+
+A> Azure Functions
+Every function has one and only one trigger. 
+A function app provides an execution context in Azure in which your functions run.
+The code for all the functions in a specific function app is located in a root project folder that contains a host configuration file. The host.json
+
+B> Durable Function Workflows
+The durable functions extension lets you define stateful workflows
+*Function chaining
+*Fan out/fan in
+*Async HTTP APIs
+*Monitor
+*Human interaction
+
+C> Durable Function Types
+Types of durable functions
+Orchestrator functions
+Activity functions
+Entity functions
+Client functions
+
+D> Task Hub
+A task hub in Azure Storage consists of the following resources:
+One or more control queues.
+One work-item queue.
+One history table.
+One instances table.
+One storage container containing one or more lease blobs.
+A storage container containing large message payloads, if applicable.
+
+E> Blob Storage Resources
+Storage Account => Container => Blob
+
+F> Types of Blobs
+Block blobs
+Append blobs
+Page blobs
+
+G> Azure Storage Client Library
+*namespace : 
+Azure.Storage.Blobs
+*classes :
+BlobClient
+BlobClientOptions
+BlobContainerClient
+BlobServiceClient
+BlobUriBuilder
+
+H> Cosmos DB Request Units
+The cost of all database operations is normalized by Azure Cosmos DB and is expressed by request units. 
+A request unit represents the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB.
+
+K> Microsoft.Azure.Cosmos NuGet package
+dotnet add package Microsoft.Azure.Cosmos
+CosmosClient : CosmosClient client = new CosmosClient(endpoint, key);
+database = client.CreateDatabaseIfNotExistsAsync(databaseId);
+ContainerResponse simpleContainer = await database.CreateContainerIfNotExistsAsync(
+    id: containerId,
+    partitionKeyPath: partitionKey,
+    throughput: 400);
+Container container = database.GetContainer(containerId);
+ItemResponse<SalesOrder> response = await container.CreateItemAsync(salesOrder, new PartitionKey(salesOrder.AccountNumber));
+
+---
+Azure Jargon
+Resource Hierarchy
 
