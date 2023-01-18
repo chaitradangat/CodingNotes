@@ -349,7 +349,7 @@ http://localhost:4200/form/london  Matches, with london assigned to the mode par
 http://localhost:4200/product/edit No match—the first segment is not form
 http://localhost:4200/form/edit/1  No match—too many segments
 
-I>
+I>Resolvers delay navigation to a route until certain conditions are met
 
 
 
