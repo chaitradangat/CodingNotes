@@ -76,7 +76,73 @@ ContainerResponse simpleContainer = await database.CreateContainerIfNotExistsAsy
 Container container = database.GetContainer(containerId);
 ItemResponse<SalesOrder> response = await container.CreateItemAsync(salesOrder, new PartitionKey(salesOrder.AccountNumber));
 
+A> Account=>Subscription=>Resource Group=>Resource=>
+Azure Region => Availibility Zone
+
+B> Azure VM Availibility Set
+Fault Domain
+Update Domain
+
+C> VM Scale Sets
+
+D> Azure Load Balancer
+
+E> Azure Resource Manager - templates
+When you deploy a template, Resource Manager converts the template into REST API operations.
+
+F> Azure template deployment options
+Azure portal
+Azure CLI
+PowerShell
+REST API
+Button in GitHub repository
+Azure Cloud Shell
+
+G> Share templates
+Template specs enable you to store a template as a resource type.
+
+H> Sample code ARM templates deployment
+New-AzResourceGroupDeployment `
+  -Mode Complete `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile c:\MyTemplates\storage.json
+
+az deployment group create \
+  --mode Complete \
+  --name ExampleDeployment \
+  --resource-group ExampleResourceGroup \
+  --template-file storage.json
+
+I> Azure Container Registry is a private docker repository in Azure
+
+J>Azure Authentication
+Single Tenant, Multi Tenant, Application Object, Service Principal Object
+Application ID, Client ID, 
+ApplicationObject => ServicePrincipalObjects,
+
+Types of Security Principal
+1> user principal
+2> service principal
+
+Types of Service Principal
+1> Application
+2> Managed Identity
+3> Legacy
+
+The application object is the global representation of your application for use across all tenants, and the service principal is the local representation for use in a specific tenant.
+
+Types of consent application needs to have to access resources
+1> static user consent, 
+2> incremental or dynamic user consent
+3>admin consent.
+
+
+
+
 ---
 Azure Jargon
 Resource Hierarchy
-
+Authorization Request
+virtual network interface card (NIC)
+on-behalf-of flow, middle tier -- please research this urgently
