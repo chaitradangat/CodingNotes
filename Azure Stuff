@@ -138,6 +138,55 @@ Types of consent application needs to have to access resources
 3>admin consent.
 
 
+A> API Management service
+*API Gateway
+*Azure portal
+*Developer portal
+
+B> API Products => have one or more API
+
+C> Types of API Products => Open, Protected
+
+D> API Gateway patterns
+* Gateway routing
+* Gateway aggregation
+* Gateway Offloading
+
+E> Policies are a collection of Statements that are executed sequentially on the request or response of an API.
+
+F> Types of basic policies
+*inbound
+*backend
+*outbound
+*on-error
+
+G> Types of adavnced policies 
+*choose
+*forward-request
+*limit-concurrency
+*log-to-eventhub
+*mock-response
+*retry
+*return-response
+
+H> Azure Event Grid
+Event Source => Message Endpoint => Event => Topic => Subscriptions => Event Handlers
+
+I>Event Drop, Event Letter Drop, Event Retry, Event Size, Event Batches, Event Subjects, Message Endpoint
+
+J> Azure Event Hub
+checkpoint store
+
+K> Azure Event Hubs Client Library
+Azure.Messaging.EventHubs
+
+L> A vault is logical group of secrets in Azure Key Vault.
+
+M> Managed Identity
+* System assigned managed identity
+* User assigned managed identity
+
+N> Azure App Configuration Service
 
 
 ---
@@ -146,3 +195,5 @@ Resource Hierarchy
 Authorization Request
 virtual network interface card (NIC)
 on-behalf-of flow, middle tier -- please research this urgently
+Please research more about webhooks
+Azure Instance Metadata Service
