@@ -1,0 +1,31 @@
+--*Please check the various data annotations
+System.ComponentModel.DataAnnotations
+System.ComponentModel.DataAnnotations.Schema
+
+--Nuget Packages
+• Microsoft.EntityFrameworkCore version 6.0.0
+• Microsoft.EntityFrameworkCore.Tools version 6.0.0
+• Microsoft.EntityFrameworkCore.SqlServer version 6.0.0
+
+--Loading strategies in entity framework
+• Eager loading: The related data is loaded from the database as part of the initial query.
+• Explicit loading: The related data is explicitly loaded from the database at a later time.
+• Lazy loading: The related data is transparently loaded from the database when the entity navigation property is accessed for the first time. This is the most complex pattern among the 
+                three and might suffer some serious performance impacts when not implemented properly.
+				
+-- Eager Loading
+var country = await _context.Countries
+.Include(c => c.Cities)
+.FindAsync(id);
+return country; // country.Cities is (eagerly) loaded
+
+--
+Microsoft.EntityFrameworkCore.DbContext
+
+--Data seeding strategies
+• Model data seed
+• Manual migration customization
+• Custom initialization logic
+
+--AsNoTracking
+
