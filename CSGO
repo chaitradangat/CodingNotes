@@ -1,0 +1,3 @@
+alias +duckjump "+jump; +duck"; alias -duckjump "-jump; -duck"; bind "SPACE" "+duckjump"
+
+CSGO-DbrRD-BX8kL-fmQhq-cRuEt-KfTOG
