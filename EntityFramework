@@ -29,3 +29,5 @@ Microsoft.EntityFrameworkCore.DbContext
 
 --AsNoTracking
 
+EfCore tracking snapshot. 
+Tracking snapshots are used for spotting changes to data, are copies of entity classes in memory.
