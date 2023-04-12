@@ -1,0 +1,25 @@
+Kubernetes has a pluggable container runtime interface called the CRI.
+
+Open Container Initiative - (OCI).
+
+Docker Engine
+
+The Open Container Initiative (OCI) has been instrumental in standardizing the container runtime format and container image format.
+
+Read Again : How to upgrade docker on linux, windows 10, windows server
+
+What is a daemon
+
+https://labs.play-with-docker.com/
+
+When you install Docker, you get two major components:
+• the Docker client
+• the Docker daemon (sometimes called “server” or “engine”)
+
+In a docker file  each line represents an instruction that is used to build an image
+
+* $ docker container run -it ubuntu:latest /bin/bash
+* docker container run -it microsoft/powershell:nanoserver pwsh.exe
+
+Look closely at the output from the previous commands. You should notice that the shell prompt has changed in each instance. 
+This is because the -it flags switch your shell into the terminal of the container — you are literally inside of the new container!
