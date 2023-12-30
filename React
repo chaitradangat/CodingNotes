@@ -1,0 +1,14 @@
+*React abstracts the target rendering environment from the components that we implement
+React Component API
+React DOM API
+
+*Diffing, Patching, Virtual DOM
+
+*Inside the React component Javascript XML , JSX uses code mixed with HTML to render react component
+Declarative React Components makes up the React page.
+
+*ReactComponent -> *ReactRenderer -> TargetPlatform
+	Component -> React Web -> Browser
+	Component -> React Native -> Mobile Device
+	Component -> React Desktop -> Laptop
+
