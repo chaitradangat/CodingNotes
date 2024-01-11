@@ -6,5 +6,12 @@ https://blog.quastor.org/
 
 Green Blue Deployment method
 
-How to build a portfolio : https://rv2442.github.io/www.rahulvijan.tech/
+Sample portfolio : https://rv2442.github.io/www.rahulvijan.tech/
 
+
+*Load Balancing Algorithms
+1.Static, Dynamic
+2.Round Robin, Weighted Round Robin
+3.Least Connections, Least Response Time
+
+4.The Power of 2 Random Choices, Consistent Hashing, Maglev Hashing
